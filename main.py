@@ -33,7 +33,7 @@ def main():
                 display_frame = cv2.cvtColor(org_frame, cv2.COLOR_RGB2BGR)
                 
                 age_prediect, gender_predict = model_operation.predict_image(face_frames)
-
+                
                 for bbox, age, gender in zip(face_bboxes, age_prediect, gender_predict):
                     x, y, w, h = bbox
                     cv2.rectangle(display_frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
