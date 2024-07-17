@@ -42,8 +42,8 @@ def main():
                     
                     try:
                         recommendation.run_recommendation(age, gender)
-                        rec_res = recommendation.get_recommendation()
-                        cv2.putText(display_frame, rec_res, (x, y - 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 3)
+                        rec_res = recommendation.get_recommendation_res()
+                        cv2.putText(display_frame, rec_res, (x, y - 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 3)
 
                     except Exception as e:
                         print(f"Error in recommendation: {e}")

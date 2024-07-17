@@ -32,7 +32,7 @@ class RecommendationAlgorithm:
             (30, 0): "Dolce Cold Brew",
             (40, 0): "Dolce Latte",
             (50, 0): "Americano",
-            (50, 0): "Americano",
+            (60, 0): "Americano",
 
             (0,0): "Caffe Latte",
             (10, 1): "java chip frappuccino",
@@ -41,8 +41,9 @@ class RecommendationAlgorithm:
             (40, 1): "Dolce Latte",
             (50, 1): "Decaf Americano",
             (50, 1): "Americano",
+            (60, 1): "Americano",
         }
         self.recommendation = recommendation_map[(self.age, self.gender)]
     
-    def get_recommendation(self):
+    def get_recommendation_res(self):
         return self.recommendation
