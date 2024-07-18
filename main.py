@@ -3,9 +3,6 @@ import threading
 from face_detection import FaceDetection
 from model_operation import Predictor
 from recommendation import RecommendationAlgorithm
-import tensorflow as tf
-import os
-
 
 def main():
 
@@ -13,11 +10,10 @@ def main():
     face_detection_run_thread = threading.Thread(target=face_detection.run)
     face_detection_run_thread.start()
 
-    age_model_path = "./smart_kiosk_prototype/age_mobv2.h5"
-    gender_model_path = "./smart_kiosk_prototype/Gender_mobv2.h5"
+    model_path = "./smart_kiosk_prototype/model/"
 
-    if os.path.isfile(age_model_path) and os.path.isfile(gender_model_path):
-        model_operation = Predictor(age_model_path,gender_model_path,env="WINDOW")
+    # if os.path.isfile(model_path):
+    model_operation = Predictor(model_path,env="WINDOW")
 
     recommendation = RecommendationAlgorithm()
 
@@ -43,7 +39,7 @@ def main():
                     try:
                         recommendation.run_recommendation(age, gender)
                         rec_res = recommendation.get_recommendation_res()
-                        cv2.putText(display_frame, rec_res, (x, y - 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 3)
+                        cv2.putText(display_frame, rec_res, (x, y - 30), cv2.FONT_HERSHEY_SIMPLEX,0.5, (255, 0, 0), 2)
 
                     except Exception as e:
                         print(f"Error in recommendation: {e}")
