@@ -11,8 +11,8 @@ class FaceDetection:
         # Initialize the camera capture
         self.cap = cv2.VideoCapture(camera_index)
         self.cam_w, self.cam_h = image_size
-        self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, self.cam_w)
-        self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, self.cam_h)
+        # self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, self.cam_w)
+        # self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, self.cam_h)
         self.cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)
 
         # Initialize the Mediapipe face detection model
